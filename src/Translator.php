@@ -150,6 +150,9 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      */
     public function formatMessage($locale, $message, array $parameters)
     {
+        if(is_array($message)) {
+            return "";
+        }
         return MessageFormatter::formatMessage($this->getLocaleRegion($locale), $message, $parameters);
     }
 
